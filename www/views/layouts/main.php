@@ -5,24 +5,37 @@
  * Date: 04.08.2018
  * Time: 22:43
  */
-?>
 
+use app\widgets\Alert;
+use yii\helpers\html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use app\assets\AppAsset;
+
+AppAsset::register($this);
+
+$this->beginPage()
+
+?>
+<html></html>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html lang="<?php Yii::$app->language ?>">
 <head>
-    <meta charset="utf-8">
+    <meta charset="<?php Yii::$app->charset ?>">
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <![endif]-->
-    <title>Home</title>
+    <?php Html::csrfMetaTags() ?>
+    <title><?php Html::encode($this->title) ?></title>
     <meta name="keywords" content="keywords" />
     <meta name="description" content="description" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <link href="assets/styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="assets/styles/minimal-menu.css" />
     <!--[if LTE IE 8]>
@@ -41,8 +54,13 @@
     <script src="assets/scripts/libs/html5shiv.js"></script>
     <script src="assets/scripts/libs/respond.js"></script>
     <![endif]-->
+    <?php $this->head() ?>
 </head>
+
 <body class="home">
+
+<?php $this->beginBody() ?>
+
 <div class="topbar">
     <div class="container">
         <div class="left-topbar">
