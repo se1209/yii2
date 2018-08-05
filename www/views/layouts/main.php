@@ -39,11 +39,11 @@ $this->beginPage()
     <meta name="keywords" content="keywords" />
     <meta name="description" content="description" />
     <!--[if LTE IE 8]>
-    <link rel="stylesheet" type="text/css" href="assets/styles/minimal-menu-ie.css" />
+    <link rel="stylesheet" type="text/css" href="css/minimal-menu-ie.css" />
     <![endif]-->
     <!--[if lt IE 9]>
-    <script src="assets/scripts/libs/html5shiv.js"></script>
-    <script src="assets/scripts/libs/respond.js"></script>
+    <script src="js/libs/html5shiv.js"></script>
+    <script src="js/libs/respond.js"></script>
     <![endif]-->
     <?php $this->head() ?>
 </head>
@@ -76,7 +76,7 @@ $this->beginPage()
 <header>
     <div class="container">
         <a class="logo" href="index.html">
-            <img src="assets/images/logo.png" alt="img" />
+            <img src="images/logo.png" alt="img" />
         </a>
         <!-- /.logo -->
         <nav class="main-nav">

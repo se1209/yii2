@@ -1,10 +1,10 @@
 <div id="slideshow">
     <div>
         <ul class="allinone_bannerRotator_list">
-            <li data-text-id="#content_ss_1"><img src="assets/images/slideshow.jpg" alt="img" /></li>
-            <li data-text-id="#content_ss_2"><img src="assets/images/slideshow2.jpg" alt="img" /></li>
-            <li data-text-id="#content_ss_3"><img src="assets/images/slideshow3.jpg" alt="img" /></li>
-            <li data-text-id="#content_ss_4"><img src="assets/images/slideshow4.jpg" alt="img" /></li>
+            <li data-text-id="#content_ss_1"><img src="images/slideshow.jpg" alt="img" /></li>
+            <li data-text-id="#content_ss_2"><img src="images/slideshow2.jpg" alt="img" /></li>
+            <li data-text-id="#content_ss_3"><img src="images/slideshow3.jpg" alt="img" /></li>
+            <li data-text-id="#content_ss_4"><img src="images/slideshow4.jpg" alt="img" /></li>
         </ul>
         <div id="content_ss_1" class="allinone_bannerRotator_texts">
             <div class="content-slideshow" data-duration="0.5" data-fade-start="0" data-delay="0.3">
@@ -93,7 +93,7 @@
                 <ul>
                     <li class="product-item">
                         <div class="wrap-product-img">
-                            <a href="detail.html"><img src="assets/images/bag-1.jpg" alt="img" /></a>
+                            <a href="detail.html"><img src="images/bag-1.jpg" alt="img" /></a>
                             <span class="saleoff style1">sale off</span>
                         </div>
                         <div class="wrap-product-content">
@@ -111,7 +111,7 @@
                     </li>
                     <li class="product-item">
                         <div class="wrap-product-img">
-                            <a href="detail.html"><img src="assets/images/bag-2.jpg" alt="img" /></a>
+                            <a href="detail.html"><img src="images/bag-2.jpg" alt="img" /></a>
                             <span class="saleoff style2">sale off</span>
                         </div>
                         <div class="wrap-product-content">
@@ -129,7 +129,7 @@
                     </li>
                     <li class="product-item">
                         <div class="wrap-product-img">
-                            <a href="detail.html"><img src="assets/images/bag-1.jpg" alt="img" /></a>
+                            <a href="detail.html"><img src="images/bag-1.jpg" alt="img" /></a>
                             <span class="saleoff style1">sale off</span>
                         </div>
                         <div class="wrap-product-content">
@@ -147,7 +147,7 @@
                     </li>
                     <li class="product-item">
                         <div class="wrap-product-img">
-                            <a href="detail.html"><img src="assets/images/bag-2.jpg" alt="img" /></a>
+                            <a href="detail.html"><img src="images/bag-2.jpg" alt="img" /></a>
                             <span class="saleoff style2">sale off</span>
                         </div>
                         <div class="wrap-product-content">
@@ -180,7 +180,7 @@
                 <ul>
                     <li class="product-item">
                         <div class="wrap-product-img">
-                            <a href="detail.html"><img src="assets/images/bag-1.jpg" alt="img" /></a>
+                            <a href="detail.html"><img src="images/bag-1.jpg" alt="img" /></a>
                             <span class="saleoff style1">sale off</span>
                         </div>
                         <div class="wrap-product-content">
@@ -198,7 +198,7 @@
                     </li>
                     <li class="product-item">
                         <div class="wrap-product-img">
-                            <a href="detail.html"><img src="assets/images/bag-2.jpg" alt="img" /></a>
+                            <a href="detail.html"><img src="images/bag-2.jpg" alt="img" /></a>
                             <span class="saleoff style2">sale off</span>
                         </div>
                         <div class="wrap-product-content">
@@ -216,7 +216,7 @@
                     </li>
                     <li class="product-item">
                         <div class="wrap-product-img">
-                            <a href="detail.html"><img src="assets/images/bag-1.jpg" alt="img" /></a>
+                            <a href="detail.html"><img src="images/bag-1.jpg" alt="img" /></a>
                             <span class="saleoff style1">sale off</span>
                         </div>
                         <div class="wrap-product-content">
@@ -234,7 +234,7 @@
                     </li>
                     <li class="product-item">
                         <div class="wrap-product-img">
-                            <a href="detail.html"><img src="assets/images/bag-2.jpg" alt="img" /></a>
+                            <a href="detail.html"><img src="images/bag-2.jpg" alt="img" /></a>
                             <span class="saleoff style2">sale off</span>
                         </div>
                         <div class="wrap-product-content">
@@ -306,7 +306,7 @@
                             </div>
                         </div>
                         <div class="media-right">
-                            <img src="assets/images/small-bag.jpg" alt="img" />
+                            <img src="images/small-bag.jpg" alt="img" />
                         </div>
                     </div>
                     <div class="media blog-item">
@@ -319,7 +319,7 @@
                             </div>
                         </div>
                         <div class="media-right">
-                            <img src="assets/images/small-bag.jpg" alt="img" />
+                            <img src="images/small-bag.jpg" alt="img" />
                         </div>
                     </div>
                 </div>
@@ -329,9 +329,9 @@
                 <h3 class="border-caption">VIDEO BAGS</h3>
                 <div class="wrap-video-bags">
                     <a class="video-player-link" href="#">
-                        <img class="video-bg" alt="alt" src="assets/images/video.png" />
+                        <img class="video-bg" alt="alt" src="images/video.png" />
                         <div class="play-button">
-                            <img alt="alt" src="assets/images/play-btn.png">
+                            <img alt="alt" src="images/play-btn.png">
                         </div>
                     </a>
                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
