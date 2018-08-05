@@ -38,18 +38,10 @@ $this->beginPage()
     <title><?php Html::encode($this->title) ?></title>
     <meta name="keywords" content="keywords" />
     <meta name="description" content="description" />
-    <link href="assets/styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="assets/styles/minimal-menu.css" />
     <!--[if LTE IE 8]>
     <link rel="stylesheet" type="text/css" href="assets/styles/minimal-menu-ie.css" />
     <![endif]-->
-    <link href="assets/styles/flat-form.css" rel="stylesheet" type="text/css" />
-    <link href="assets/styles/fancySelect.css" rel="stylesheet" type="text/css" />
-    <link href="assets/styles/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-    <link href="assets/styles/responsive-tabs.css" rel="stylesheet" type="text/css" />
-    <link href="assets/styles/allinone_bannerRotator.css" rel="stylesheet" type="text/css">
-    <link href="assets/styles/perfect-scrollbar.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/styles/styles.css" rel="stylesheet" type="text/css" />
+
     <script src="assets/scripts/libs/prefixfree.min.js"></script>
     <script src="assets/scripts/libs/modernizr.js"></script>
     <!--[if lt IE 9]>

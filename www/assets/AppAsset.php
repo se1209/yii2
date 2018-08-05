@@ -20,7 +20,17 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        //'css/site.css',
+        'css/flat-form.css',
+        'css/fancySelect.css',
+        'css/jquery.fancybox.css',
+        'css/responsive-tabs.css',
+        'css/allinone_bannerRotator.css',
+        'css/perfect-scrollbar.min.css',
+        'css/styles.css',
+        'css/font-awesome.min.css',
+        'css/minimal-menu.css',
+        //'css/minimal-menu-ie.css',
     ];
     public $js = [
     ];
