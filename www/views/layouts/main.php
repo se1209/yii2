@@ -20,12 +20,14 @@ $this->beginPage()
 ?>
 <html></html>
 <!DOCTYPE html>
+
+<html lang="<?php Yii::$app->language ?>">
 <!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<html lang="<?php Yii::$app->language ?>">
+
 <head>
     <meta charset="<?php Yii::$app->charset ?>">
     <!--[if IE]>
@@ -135,6 +137,10 @@ $this->beginPage()
         <!-- /.top-cart -->
     </div>
 </header>
+
+<?php Alert::widget() ?>
+<?php $content ?>
+
 <div id="slideshow">
     <div>
         <ul class="allinone_bannerRotator_list">
@@ -569,5 +575,10 @@ $this->beginPage()
 <script src="assets/scripts/libs/allinone_bannerRotator.js"></script>
 <script src="assets/scripts/libs/perfect-scrollbar.min.js"></script>
 <script src="assets/scripts/functions.js"></script>
+
+<?php $this->endBody() ?>
+
 </body>
 </html>
+
+<?php $this->endPage() ?>
