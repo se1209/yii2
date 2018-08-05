@@ -41,9 +41,6 @@ $this->beginPage()
     <!--[if LTE IE 8]>
     <link rel="stylesheet" type="text/css" href="assets/styles/minimal-menu-ie.css" />
     <![endif]-->
-
-    <script src="assets/scripts/libs/prefixfree.min.js"></script>
-    <script src="assets/scripts/libs/modernizr.js"></script>
     <!--[if lt IE 9]>
     <script src="assets/scripts/libs/html5shiv.js"></script>
     <script src="assets/scripts/libs/respond.js"></script>
@@ -549,24 +546,8 @@ $this->beginPage()
         </div>
     </div>
 </footer>
-<script src="assets/scripts/libs/jquery-1.11.2.min.js"></script>
-<script src="assets/scripts/libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="assets/scripts/libs/bootstrap.min.js"></script>
-<script src="assets/scripts/libs/fancySelect.js"></script>
-<script src="assets/scripts/libs/jquery.jcarousel.min.js"></script>
-<script src="assets/scripts/jcarousel.responsive.js"></script>
-<script src="assets/scripts/libs/jquery.raty-fa.js"></script>
-<script src="assets/scripts/libs/jquery.sticky-kit.js"></script>
-<script src="assets/scripts/libs/gmaps.js"></script>
-<script src="assets/scripts/jspatch.js"></script>
-<script src="assets/scripts/libs/jquery.responsiveTabs.min.js"></script>
-<script src="assets/scripts/libs/jquery.fancybox.pack.js"></script>
-<script src="assets/scripts/libs/jquery.ui.touch-punch.min.js"></script>
-<script src="assets/scripts/libs/jquery.mousewheel.min.js"></script>
-<script src="assets/scripts/libs/allinone_bannerRotator.js"></script>
-<script src="assets/scripts/libs/perfect-scrollbar.min.js"></script>
-<script src="assets/scripts/functions.js"></script>
 
 <?php $this->endBody() ?>
 
