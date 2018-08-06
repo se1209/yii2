@@ -130,7 +130,6 @@ $this->beginPage()
 <?= Alert::widget() ?>
 <?= $content ?>
 
-123
 <footer>
     <div class="container">
         <div class="row">
