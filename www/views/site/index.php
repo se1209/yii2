@@ -1,5 +1,12 @@
 
 <?php
+
+    foreach ($model as $item)
+    {
+        echo 'Заголовок категории - ' . $item->title . '<br>';
+    }
+    exit();
+
     echo '<pre>';
     print_r($model);
     echo '</pre>';

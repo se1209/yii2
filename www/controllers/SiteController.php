@@ -62,8 +62,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        // Получаем всё из таблицы;
+        // Получаем всё из таблицы 'category';
         $model = Category::find()->all();
+
+        // Получаем запись с ID = 4;
+        //$model = Category::findOne(4);
+        // Получаем запись с ID = 3;
+        //$model = Category::find()->where(['id' => 3])->all();
+
+        // Получаем первые 2 записи;
+        //$model = Category::find()->limit(2)->all();
+        // Получаем  последние 2 записи;
+        //$model = Category::find()->orderBy('id DESC')->limit(2)->all();
+
         return $this->render('index', compact('model'));
     }
 
