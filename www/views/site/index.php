@@ -1,3 +1,11 @@
+
+<?php
+    echo '<pre>';
+    print_r($model);
+    echo '</pre>';
+    exit;
+?>
+
 <div id="slideshow">
     <div>
         <ul class="allinone_bannerRotator_list">
