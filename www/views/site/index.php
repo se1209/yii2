@@ -1,7 +1,7 @@
 
 <?php
 
-    foreach ($model as $item)
+    /*foreach ($model as $item)
     {
         echo 'Заголовок категории - ' . $item->title . '<br>';
     }
@@ -10,7 +10,7 @@
     echo '<pre>';
     print_r($model);
     echo '</pre>';
-    exit;
+    exit;*/
 ?>
 
 <div id="slideshow">

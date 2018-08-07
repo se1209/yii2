@@ -12,6 +12,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 
@@ -55,7 +56,7 @@ $this->beginPage()
 <div class="topbar">
     <div class="container">
         <div class="left-topbar">
-            Welcome visitor you can <a href="#">login</a> or <a href="#">create an account</a>.
+            Добро пожаловать, Вы можете <a href="<?= Url::to(['site/registration']) ?>">Авторизоваться</a> или <a href="<?= Url::to(['site/registration']) ?>">Зарегистрироваться</a>.
         </div>
         <!-- /.left-topbar -->
         <ul class="right-topbar">

@@ -113,7 +113,21 @@ class SiteController extends CustomController
         {
             $this->Password = $registration->password;
             $registration->password = Yii::$app->security->generatePasswordHash($registration->password);
+            $registration->code = Yii::$app->getSecurity()->generateRandomString(10);
+
+            if ($registration->save())
+            {
+                Yii::$app->session->setFlash('success', 'Вам отправлено письмо с ссылкой для подтверждения почтового адреса!');
+                return $this->goHome();
+            }
+            else
+            {
+                $registration->password = $this->Password;
+                return $this->render('regLog', compact('registration'));
+            }
         }
+
+        return $this->render('regLog', compact('registration'));
     }
 
     /**

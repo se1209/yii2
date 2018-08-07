@@ -13,7 +13,7 @@ class CustomController extends Controller
 {
     protected function setMeta ($title = null, $description = null, $keywords = null)
     {
-        $this->view->title = $this;
+        $this->view->title = $title;
         $this->view->registerMetaTag(['name' => 'description', 'content' => $description]);
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
     }
