@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -10,8 +11,9 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\controllers\CustomController;
 
-class SiteController extends Controller
+class SiteController extends CustomController
 {
     /**
      * {@inheritdoc}
@@ -38,6 +40,8 @@ class SiteController extends Controller
             ],
         ];
     }
+
+    public $Password;
 
     /**
      * {@inheritdoc}
@@ -98,6 +102,18 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
+    }
+
+    public function actionRegistration()
+    {
+        $this->setMeta('Регистрация');
+        $registration = new User();
+        $registration->scenario = 'registration';
+        if ($registration->load(Yii::$app->request->post()))
+        {
+            $this->Password = $registration->password;
+            $registration->password = Yii::$app->security->generatePasswordHash($registration->password);
+        }
     }
 
     /**
