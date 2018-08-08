@@ -56,10 +56,14 @@ $this->beginPage()
 <div class="topbar">
     <div class="container">
         <div class="left-topbar">
-            Добро пожаловать, Вы можете <a href="<?= Url::to(['site/registration']) ?>">Авторизоваться</a> или <a href="<?= Url::to(['site/registration']) ?>">Зарегистрироваться</a>.
+            Добро пожаловать, Вы можете <a href="<?= Url::to(['site/registration-login']) ?>">Авторизоваться</a> или <a href="<?= Url::to(['site/registration-login']) ?>">Зарегистрироваться</a>.
         </div>
         <!-- /.left-topbar -->
         <ul class="right-topbar">
+
+            <?php if (!Yii::$app->user->isGuest) { ?>
+                <li><a href="<?= Url::to(['site/logout']) ?>">Выйти</a></li>
+            <?php } ?>
             <li>
                 <a href="#" class="top-wishlist">
                     Wish list

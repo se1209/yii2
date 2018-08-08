@@ -35,7 +35,7 @@ class SiteController extends CustomController
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -104,11 +104,26 @@ class SiteController extends CustomController
         ]);
     }
 
-    public function actionRegistration()
+    public function actionRegistrationLogin()
     {
-        $this->setMeta('Регистрация');
+        if (!Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
+
+        $this->setMeta('Регистрация/Авторизация');
+
         $registration = new User();
         $registration->scenario = 'registration';
+
+        $login = new User();
+        $login->scenario = 'login';
+
+        if ($login->load(Yii::$app->request->post()) && $login->login())
+        {
+            return $this->goHome();
+        }
+
         if ($registration->load(Yii::$app->request->post()))
         {
 
@@ -156,9 +171,13 @@ class SiteController extends CustomController
         {
             $user->code = '';
             $user->active = User::ACTIVE_USER;
-            $user->save();
-            Yii::$app->session->setFlash('success', 'Аккаунт активирован');
-            return $this->goHome();
+
+            if ($user->save())
+            {
+                $user->login();
+                Yii::$app->session->setFlash('success', 'Аккаунт активирован');
+                return $this->goHome();
+            }
         }
         else
         {

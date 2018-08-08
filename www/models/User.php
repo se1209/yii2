@@ -15,8 +15,11 @@ class User extends ActiveRecord implements IdentityInterface
 //    public $id;
 //    public $username;
 //    public $password;
-    public $authKey;
-    public $accessToken;
+//    public $authKey;
+//    public $accessToken;
+
+    public $rememberMe = true;
+    public $_user = false;
 
     const ACTIVE_USER = 1;
 
@@ -46,14 +49,20 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['email', 'password'], 'required', 'on' => 'registration'],
+            [['username', 'auth_key', 'code', 'active', 'is_email', 'rememberMe'], 'safe', 'on' => 'registration'],
+
             [['active', 'is_email'], 'integer'],
             [['email', 'password', 'username', 'auth_key', 'code'], 'string', 'max' => 255],
-            [['username', 'auth_key', 'code', 'active', 'is_email'], 'safe', 'on' => 'registration'],
+
+            /*[['email', 'password'], 'required', 'on' => 'login'],
+            [['username', 'auth_key', 'code', 'active', 'is_email', 'rememberMe'], 'safe', 'on' => 'login'],*/
+            [['email', 'password'], 'required', 'on' => 'login'],
+            [['username', 'auth_key', 'code', 'active', 'is_email', 'rememberMe'], 'safe', 'on' => 'login'],
         ];
     }
 
     // Отправка почты для подтверждения E-mail;
-    public function sendConfirmationLink ()
+    public function sendConfirmationLink()
     {
         $confirmationLinkUrl = Url::to(['site/confirmemail', 'email' => $this->email, 'code' => $this->code]);
         $confirmationLink = Html::a('Подтвердите E-mail', $confirmationLinkUrl);
@@ -78,18 +87,85 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return static ::findOne($id);
+    }
+
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        // TODO: Implement findIdentityByAccessToken() method.
+    }
+
+    public static function findByUsername($email)
+    {
+        return static ::findOne(['email' => $email, 'active' => self::ACTIVE_USER]);
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getAuthKey()
+    {
+        return $this->auth_key;
+    }
+
+    public function validateAuthKey($auth_key)
+    {
+        return $this->auth_key === $auth_key;
+    }
+
+    public function validatePassword($password)
+    {
+        return Yii::$app->security->validatePassword($password, $this->password);
+    }
+
+    public function generateAuthKey()
+    {
+        $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+
+    public function login()
+    {
+        $this->scenario = 'login';
+
+        if ($this->validate())
+        {
+            if ($this->rememberMe)
+            {
+                $cookie = $this->getUser();
+                $cookie->generateAuthKey();
+                $cookie->save();
+            }
+
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+        }
+    }
+
+    public function getUser()
+    {
+        if ($this->_user === false)
+        {
+            $this->_user = $this->findByUsername($this->email);
+        }
+
+        return $this->_user;
     }
 
     /**
      * {@inheritdoc}
      */
-    public static function findIdentityByAccessToken($token, $type = null)
+    /*public static function findIdentity($id)
+    {
+        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+    }*/
+
+    /**
+     * {@inheritdoc}
+     */
+    /*public static function findIdentityByAccessToken($token, $type = null)
     {
         foreach (self::$users as $user) {
             if ($user['accessToken'] === $token) {
@@ -98,7 +174,7 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         return null;
-    }
+    }*/
 
     /**
      * Finds user by username
@@ -106,7 +182,7 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $username
      * @return static|null
      */
-    public static function findByUsername($username)
+    /*public static function findByUsername($username)
     {
         foreach (self::$users as $user) {
             if (strcasecmp($user['username'], $username) === 0) {
@@ -115,31 +191,31 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         return null;
-    }
+    }*/
 
     /**
      * {@inheritdoc}
      */
-    public function getId()
+    /*public function getId()
     {
         return $this->id;
-    }
+    }*/
 
     /**
      * {@inheritdoc}
      */
-    public function getAuthKey()
+    /*public function getAuthKey()
     {
         return $this->authKey;
-    }
+    }*/
 
     /**
      * {@inheritdoc}
      */
-    public function validateAuthKey($authKey)
+    /*public function validateAuthKey($authKey)
     {
         return $this->authKey === $authKey;
-    }
+    }*/
 
     /**
      * Validates password
@@ -147,8 +223,8 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $password password to validate
      * @return bool if password provided is valid for current user
      */
-    public function validatePassword($password)
+    /*public function validatePassword($password)
     {
         return $this->password === $password;
-    }
+    }*/
 }
