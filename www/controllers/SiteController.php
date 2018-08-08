@@ -111,23 +111,60 @@ class SiteController extends CustomController
         $registration->scenario = 'registration';
         if ($registration->load(Yii::$app->request->post()))
         {
-            $this->Password = $registration->password;
-            $registration->password = Yii::$app->security->generatePasswordHash($registration->password);
-            $registration->code = Yii::$app->getSecurity()->generateRandomString(10);
 
-            if ($registration->save())
-            {
-                Yii::$app->session->setFlash('success', 'Вам отправлено письмо с ссылкой для подтверждения почтового адреса!');
-                return $this->goHome();
+            $user = User::find()->where(['email' => $registration->email])->limit(1)->all();
+
+            if (!$user) {
+                $this->Password = $registration->password;
+                $registration->password = Yii::$app->security->generatePasswordHash($registration->password);
+                $registration->code = Yii::$app->getSecurity()->generateRandomString(10);
+
+                if ($registration->save())
+                {
+                    $registration->sendConfirmationLink();
+                    Yii::$app->session->setFlash('success', 'Вам отправлено письмо с ссылкой для подтверждения почтового адреса!');
+                    return $this->goHome();
+                }
+                else
+                {
+                    $registration->password = $this->Password;
+                    return $this->render('reglog', compact('registration'));
+                }
             }
             else
             {
-                $registration->password = $this->Password;
-                return $this->render('regLog', compact('registration'));
+                Yii::$app->session->setFlash('info', 'Пользователь с таким E-mail существует, попробуйте восстановить пароль!');
+                return $this->goHome();
             }
         }
+        return $this->render('reglog', compact('registration'));
+    }
 
-        return $this->render('regLog', compact('registration'));
+    public function  actionConfirmemail ()
+    {
+        $email = Yii::$app->request->get('email');
+        $code = Yii::$app->request->get('code');
+
+        if (!Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
+
+        $user = User::find()->where(['email' => $email, 'code' => $code])->one();
+
+        if ($user->active == 0)
+        {
+            $user->code = '';
+            $user->active = User::ACTIVE_USER;
+            $user->save();
+            Yii::$app->session->setFlash('success', 'Аккаунт активирован');
+            return $this->goHome();
+        }
+        else
+        {
+            Yii::$app->session->setFlash('error', 'Не удалось активировать аккаунт, обратитесь к администрации сайта!');
+            return $this->goHome();
+        }
     }
 
     /**
