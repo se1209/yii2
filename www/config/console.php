@@ -16,6 +16,11 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+
         'log' => [
             'targets' => [
                 [
@@ -25,6 +30,16 @@ $config = [
             ],
         ],
         'db' => $db,
+
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'login' => 'site/login',
+                'registration-login' => 'site/registration-login',
+                'logout' => 'site/logout',
+            ],
+        ],
     ],
     'params' => $params,
     /*
