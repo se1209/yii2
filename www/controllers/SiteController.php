@@ -152,7 +152,7 @@ class SiteController extends CustomController
                 return $this->goHome();
             }
         }
-        return $this->render('reglog', compact('registration'));
+        return $this->render('reglog', compact('registration', 'login'));
     }
 
     public function  actionConfirmemail ()

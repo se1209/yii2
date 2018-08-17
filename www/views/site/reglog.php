@@ -102,6 +102,10 @@ use app\controllers\CustomController;
                     <div class="col-md-7">
 
                         <?php
+                        /*CustomController::printR($registration);
+                        var_dump($registration);
+                        exit()*/;
+
                         $formLogin = ActiveForm::begin() ?>
                         <?= $formLogin->field($login, 'email')->textInput() ?>
                         <?= $formLogin->field($login, 'password')->passwordInput() ?>
